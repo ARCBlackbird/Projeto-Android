@@ -1,0 +1,280 @@
+/* Nós nunca terminamos um projeto... nós desistimos dele */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+    font-family: 'Android';
+    src: url('../fonts/IDroid.otf'), format('opentype');
+    font-weight: normal;   
+}
+/* O conceito da responsividade é o site se adaptar aos diferentes tamanhos de tela */
+* {
+    margin: 0px;
+    padding: 0px;
+} /* Isso vai desabilitar TODO o margin/padding do site, assim, podemos configurar manualmente */
+
+/* Toda linguagem de programação tem variável, mas nem toda variável
+    é de uma linguagem de programação */
+
+/* Verde mais claro
+#c5ebd6
+#83e1ad
+#3ddc64
+#2fa866
+#1a5c37
+#063d1e
+   Ao mais escuro */
+
+:root { /* Isso indica que será atribuído valores que valerão pro documento inteiro */
+    --verde0: #c5ebd6;
+    --verde1: #83e1ad;
+    --verde2: #3ddc64;
+    --verde3: #2fa866;
+    --verde4: #1a5c37;
+    --verde5: #063d1e;
+    --stock-fonts: Arial, Verdana, Helvetica, sans-serif;
+    --special-font: 'Bebas Neue', cursive;
+    --special-android-font: 'Android', cursive;
+} /* As variáveis no CSS devem conter dois traços no início do nome, e pode ser o nome que quiser */
+
+body {
+    background-color: #ebe5c5;
+    font-family: var(--stock-fonts);
+}
+
+a.outlink::after {
+    content: '\00A0\1F517';
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--verde3), var(--verde5));
+    min-height: 150px;
+    /* Isso quer dizer que a altura mínima conforme o dispositivo, será de
+    150px (falta a altura máxima */
+    text-align: center;
+    padding-top: 40px;
+    /* Vai dar um espaçamento dentro, empurrando o h1 e o parágrafo pra
+    baixo*/
+}
+
+header > h1 {
+    color: aliceblue;
+    font-family: var(--special-font);
+    font-size: 2.5em;
+    margin-bottom: 16px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.226);
+    /* 
+       A primeira declaração indica a h-shadow, a sombra horizontal 
+    do texto;
+       A segunda declaração indica a v-shadow, a sombra vertical 
+    do texto;
+       A terceira declaração indica o blur, o espalhamento da sombra,
+    sua declaração é opcional e por padrão é 0.
+    */
+}
+
+header > p {
+    font-family: var(--stock-fonts);
+    font-size: 1.1em;
+    color: white;
+    max-width: 600px;
+    /* O tamanho máximo vai ser de 600px, assim, impede que a fonte se 
+    estique mais do que o normal */
+    padding-right: 10px;
+    padding-left: 10px;
+    /* Paddings pra garantir de que o texto não fique colado nas laterais 
+    */
+    margin: auto;
+    /* Como o tamanho foi declarado acima, a configuração de margem foi desfeita
+    pra esse elemento, assim sendo necessário declarar a centralização novamente
+    */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.226);
+    margin-bottom: 30px;
+    
+}
+
+nav {
+    padding: 10px;
+    background-color: var(--verde5);
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.226);
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px;
+    color: var(--verde1);
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color:#2fa866;
+    color: #063d1e;
+    transition-duration: .5s;
+    /* Esse atributo vai ativar os elementos dessa classe ao mesmo tempo com
+    uma duração de 0.5 segundos (.5 também funciona). É o início das animações
+    em CSS3. */
+}
+
+main {
+    padding: 20px;
+    min-width: 300px;
+    max-width: 900px;
+    margin: auto;
+    /* O margin-bottom conflita com o margin: auto; caso seja inserido acima. */
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.418);
+}
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 2em;
+    /* o atributo line-height vai configurar o espaçamento entre linhas do texto */
+    font-size: 1em;
+}
+
+main strong {
+    color: var(--verde4);
+    font-weight: bold;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--verde5);
+    background-color: var(--verde1);
+    padding: 2px 6px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--verde4);
+}
+main h1 {
+    color: var(--verde5);
+    font-family: var(--special-android-font);
+}
+
+main h2 {
+    font-family: var(--special-android-font);
+    color: var(--verde4);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--verde1), transparent);
+    /* O transparente é uma cor de RGBA 0*/
+    padding-left: 6px;
+}
+
+main img {
+    width: 100%;
+}
+
+main img#bugdroid {
+    display: block;
+    /* Uma imagem por padrão não é um bloco, para ser considerada, deve-se
+    declarar dentro de seu seletor, que ela será um bloco, e assim, será possível
+    fazer as alterações desejadas como se a mesma fosse um bloco. */
+    margin: auto;
+    /* width: 60%; 
+    
+    A configuração acima está errada, pois a imagem do Bugdroid possui somente 400px
+    de largura, assim, quando a tela for muito grande, vai expandir de forma que des-
+    figure completamente a imagem
+
+    De tal forma vai acontecer pra telas muito pequenas: a foto vai ficar pequena de-
+    mais, impossibilitando uma visão clara.
+
+    Sendo assim, a configuração será trocada para max-width
+    */
+    max-width: 350px;
+    /* Com um tamanho sempre inferior ao tamanho da imagem em poucos pixels, pra que
+    mantenha uma boa resolução */
+}
+
+div#video1 { /* Configurações para o fundo do vídeo */
+    background-color: #063d1e;
+    /* Para deixar o vídeo longe do conteúdo periférico (aside), foi usado um margin-bottom 
+    de 30px (no código abaixo) */
+    margin: 0px -20px 30px -20px;
+    /* Podemos ver um uso melhor da margin negativa, visto que o main tem um padding de 20px
+    na qual quebramos usando o margin -20px na direita e esquerda */
+    padding: 20px;
+    padding-bottom: 58%;
+    /* Qual o motivo do padding-bottom? */
+    /* A configuração do padding-bottom tem que ser bem revisada devido á criação de uma
+    barra lateral preta no vídeo em questão (que pode virar uma barra vertical tbm, então
+    é bom rever) */
+    position: relative;
+}
+
+div#video1 > iframe {
+    position: absolute;
+    /* Quando o atributo absolute é adicionado, podemos usar outros dois: */
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    /* Ajustando a largura do vídeo em relação á div */
+    height: 90%;
+    /* Ajustando a altura do vídeo em relação á div */
+}
+
+aside {
+    background-color: var(--verde1);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+aside > ul { /* !! ESSA CONFIGURAÇÃO NÃO É COMPATÍVEL COM TODOS OS NAVEGADORES !! 
+    
+    Testado em: Firefox Browser 112.0.2
+    Dia: 27/04/2023
+    Suporte: OK
+
+    */
+    list-style-type: '\2714\00A0\0020';
+    /* 2714 é o código de um emoji -- \00A0 e \0020 são referentes á um espaço, ambos
+    funcionam */
+    list-style-position: inside;
+    /* Sem essa configuração, os marcadores de UL estão fora da caixa de aside */
+    columns: 2;
+    /* Vai dividir na quantia de colunas inserida*/
+}
+
+aside h3 {
+    background-color: var(--verde4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0 -10px;
+    /* -10 é referente a estender pra fora, pro lado oposto do padrão de margin */
+    border-radius: 10px 10px 0px 0px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+    background-color: var(--verde5);
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: aliceblue;
+}
+
+footer a:hover {
+    padding: 0px 2px;
+    text-decoration: underline;
+    background-color:#c5ebd6 ;
+    border-radius: 3px;
+    color: #063d1e;
+    transition-duration: .5s;
+}
+/*
+aside ul {
+    Todo elemento UL presente em ASIDE...
+}
+*/
