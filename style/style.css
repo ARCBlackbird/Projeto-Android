@@ -88,7 +88,8 @@ header > p {
     pra esse elemento, assim sendo necessário declarar a centralização novamente
     */
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.226);
-    margin-bottom: 30px;
+    /* margin-bottom: 30px;  A aplicação do margin foi errada, pois no cliente mobile, o margin ficou por cima do menu de links. Para consertar, usaremos padding ao invés de margin */
+    padding-bottom: 50px;
     
 }
 
